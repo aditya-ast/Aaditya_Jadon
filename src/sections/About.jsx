@@ -184,8 +184,8 @@ const About = () => {
               Want to know more about my experience?
             </p>
             <motion.a
-              href="/resume.pdf"
-              download="Aditya_Jadon_Resume.pdf"
+              href="/Aaditya_Jadon.pdf"
+              download="Aaditya_Jadon.pdf"
               className="flex items-center gap-3 px-8 py-4 bg-white/5 backdrop-blur-xl border border-white/10 text-white font-medium rounded-full shadow-2xl hover:bg-white/10 hover:shadow-white/5 transition-all duration-300 cursor-pointer"
             >
               <svg 
