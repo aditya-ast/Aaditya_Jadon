@@ -63,8 +63,9 @@ body {
   @apply hover:-translate-y-1 duration-200;
 }
 
+/* Enhanced section spacing for better visual hierarchy */
 .section-spacing {
-  @apply min-h-screen mt-20 md:mt-30;
+  @apply py-12 md:py-16 lg:py-20;
 }
 
 .text-heading {
@@ -85,17 +86,16 @@ body {
 }
 
 .nav-container {
-  @apply flex items-center gap-1 sm:gap-2 px-3 sm:px-6 py-2 sm:py-4 rounded-full border shadow-2xl;
+  @apply flex items-center gap-1 sm:gap-2 px-3 sm:px-6 py-2 sm:py-4 rounded-full shadow-2xl;
   /* Enhanced Glass Effect */
-  background: rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
   box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.37),
-    0 4px 16px rgba(0, 0, 0, 0.25),
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 4px 16px rgba(0, 0, 0, 0.3),
     inset 0 1px 2px rgba(255, 255, 255, 0.1),
-    inset 0 -1px 2px rgba(0, 0, 0, 0.1);
+    inset 0 -1px 2px rgba(0, 0, 0, 0.2);
   /* Responsive scaling */
   transform: scale(0.9);
 }
@@ -119,16 +119,18 @@ body {
 .nav-link-modern {
   @apply flex items-center gap-2 sm:gap-3 px-3 sm:px-5 py-2 sm:py-3 rounded-full text-gray-300 hover:text-white transition-all duration-500 relative overflow-hidden;
   position: relative;
+  cursor: pointer;
 }
 
 .nav-link-modern:hover {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.15));
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.08));
   transform: translateY(-2px) scale(1.05);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
   box-shadow: 
-    0 8px 25px rgba(59, 130, 246, 0.2),
-    0 4px 15px rgba(139, 92, 246, 0.15),
-    inset 0 1px 2px rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(59, 130, 246, 0.3);
+    0 8px 25px rgba(0, 0, 0, 0.3),
+    0 4px 15px rgba(0, 0, 0, 0.2),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3);
 }
 
 .nav-link-modern::before {
@@ -169,8 +171,8 @@ body {
 
 .nav-link-modern:hover .nav-icon {
   transform: scale(1.2) rotate(5deg);
-  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.6));
-  text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .nav-text {
@@ -328,6 +330,7 @@ body {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
+  cursor: pointer;
 }
 
 .mobile-glass-link:hover {
@@ -389,10 +392,12 @@ body {
 
 .nav-li {
   @apply text-neutral-400 hover:text-white max-sm:w-full max-sm:rounded-md py-2 max-sm:px-5;
+  cursor: pointer;
 }
 
 .nav-link {
   @apply text-lg md:text-base hover:text-white transition-colors;
+  cursor: pointer;
 }
 /* Button Components */
 .btn {
@@ -438,4 +443,167 @@ body {
 
 .field-input-focus {
   @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20;
+}
+
+/* Universal cursor pointer for interactive elements */
+button,
+a,
+.cursor-pointer,
+[role="button"],
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+.nav-item,
+.mobile-menu-toggle-small,
+.mobile-glass-link,
+.nav-link-modern,
+.nav-li,
+.nav-link,
+motion.button,
+motion.a,
+motion.span[whileHover],
+span[whileHover],
+div[onClick],
+motion.div[onClick] {
+  cursor: pointer !important;
+}
+
+/* Ensure buttons and links have pointer cursor on hover */
+button:hover,
+a:hover,
+.nav-item:hover,
+.mobile-menu-toggle-small:hover,
+.mobile-glass-link:hover,
+.nav-link-modern:hover,
+.nav-li:hover,
+.nav-link:hover,
+motion.button:hover,
+motion.a:hover,
+motion.span:hover,
+span:hover,
+div[onClick]:hover,
+motion.div[onClick]:hover {
+  cursor: pointer !important;
+}
+
+/* Remove cursor pointer from badges */
+.projects-badge,
+.projects-badge:hover {
+  cursor: default !important;
+}
+
+/* Remove cursor pointer from headings and non-interactive text */
+.projects-heading,
+.projects-heading:hover,
+h1, h2, h3, h4, h5, h6,
+p, span:not([whileHover]):not([onClick]) {
+  cursor: default !important;
+}
+
+/* Simple footer social media hover effects */
+.footer-social-link {
+  display: inline-block;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.footer-social-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Enhanced Contact Submit Button */
+.contact-submit-button {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #3b82f6 100%);
+  background-size: 200% 200%;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.2),
+    0 2px 8px rgba(59, 130, 246, 0.1),
+    inset 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+.contact-submit-button:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.3),
+    0 4px 15px rgba(59, 130, 246, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+.contact-submit-button:disabled {
+  transform: none !important;
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.1),
+    0 2px 8px rgba(59, 130, 246, 0.05);
+}
+
+.bg-size-200 {
+  background-size: 200% 200%;
+}
+
+/* New Dynamic Contact Button */
+.dynamic-contact-button {
+  position: relative;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+.dynamic-contact-button:hover {
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    0 8px 25px rgba(59, 130, 246, 0.2),
+    inset 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+.dynamic-contact-button:disabled {
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.2),
+    inset 0 1px 2px rgba(255, 255, 255, 0.05);
+}
+
+.dynamic-contact-button:active {
+  transform: scale(0.97) translateY(1px);
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.2),
+    inset 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+/* Border animation */
+.dynamic-contact-button::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899, #f59e0b, #10b981, #3b82f6);
+  background-size: 300% 300%;
+  animation: borderGlow 3s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.dynamic-contact-button:hover::before {
+  opacity: 0.7;
+}
+
+@keyframes borderGlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Custom border width */
+.border-3 {
+  border-width: 3px;
 }

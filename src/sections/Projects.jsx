@@ -15,7 +15,8 @@ const Projects = () => {
   return (
     <section
       onMouseMove={handleMouseMove}
-      className="relative c-space section-spacing"
+      className="relative c-space py-12 md:py-16 lg:py-20"
+      id="project"
     >
       {/* Simple and Dynamic Header - Left Aligned */}
       <div className="relative mb-16 text-left">
@@ -26,7 +27,7 @@ const Projects = () => {
           className="space-y-4"
         >
           {/* Clean heading */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
+          <h2 className="projects-heading text-4xl md:text-5xl lg:text-6xl font-bold">
             <span className="text-white">My Selected </span>
             <span className="text-transparent bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text">
               Projects
@@ -45,7 +46,7 @@ const Projects = () => {
           
           {/* Subtitle */}
           <motion.p
-            className="text-lg text-neutral-400 max-w-2xl mt-6"
+            className="projects-heading text-lg text-neutral-400 max-w-2xl mt-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -61,7 +62,7 @@ const Projects = () => {
             className="flex items-center space-x-3 mt-8"
           >
             <motion.span
-              className="px-3 py-2 text-sm font-medium bg-blue-500/10 border border-blue-400/30 rounded-full text-blue-400"
+              className="projects-badge px-3 py-2 text-sm font-medium bg-blue-500/10 border border-blue-400/30 rounded-full text-blue-400"
               whileHover={{ scale: 1.05 }}
               animate={{ 
                 opacity: [0.8, 1, 0.8],
@@ -75,7 +76,7 @@ const Projects = () => {
               🚀 Portfolio
             </motion.span>
             <motion.span
-              className="px-3 py-2 text-sm font-medium bg-purple-500/10 border border-purple-400/30 rounded-full text-purple-400"
+              className="projects-badge px-3 py-2 text-sm font-medium bg-purple-500/10 border border-purple-400/30 rounded-full text-purple-400"
               whileHover={{ scale: 1.05 }}
               animate={{ 
                 opacity: [0.8, 1, 0.8],
@@ -89,7 +90,7 @@ const Projects = () => {
               💼 {myProjects.length} Projects
             </motion.span>
             <motion.span
-              className="px-3 py-2 text-sm font-medium bg-emerald-500/10 border border-emerald-400/30 rounded-full text-emerald-400"
+              className="projects-badge px-3 py-2 text-sm font-medium bg-emerald-500/10 border border-emerald-400/30 rounded-full text-emerald-400"
               whileHover={{ scale: 1.05 }}
               animate={{ 
                 opacity: [0.8, 1, 0.8],

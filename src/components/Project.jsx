@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ProjectDetails from "./ProjectDetails";
 
 const Project = ({
@@ -11,12 +11,49 @@ const Project = ({
   setPreview,
 }) => {
   const [isHidden, setIsHidden] = useState(false);
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsLargeScreen(window.innerWidth > 1024); // Only enable hover for screens larger than 1024px
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
+  const handleMouseEnter = () => {
+    if (isLargeScreen && !isHidden) {
+      setPreview(image);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (isLargeScreen && !isHidden) {
+      setPreview(null);
+    }
+  };
+
+  const handleReadMoreClick = () => {
+    // Clear any existing preview when opening modal
+    setPreview(null);
+    setIsHidden(true);
+  };
+
+  const handleCloseModal = () => {
+    // Clear preview when closing modal
+    setPreview(null);
+    setIsHidden(false);
+  };
+
   return (
     <>
       <div
         className="flex-wrap items-center justify-between py-10 space-y-14 sm:flex sm:space-y-0"
-        onMouseEnter={() => setPreview(image)}
-        onMouseLeave={() => setPreview(null)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
         <div>
           <p className="text-2xl">{title}</p>
@@ -27,7 +64,7 @@ const Project = ({
           </div>
         </div>
         <button
-          onClick={() => setIsHidden(true)}
+          onClick={handleReadMoreClick}
           className="flex items-center gap-1 cursor-pointer hover-animation"
         >
           Read More
@@ -43,7 +80,7 @@ const Project = ({
           image={image}
           tags={tags}
           href={href}
-          closeModal={() => setIsHidden(false)}
+          closeModal={handleCloseModal}
         />
       )}
     </>

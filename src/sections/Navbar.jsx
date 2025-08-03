@@ -2,11 +2,23 @@ import { useState } from "react";
 import { motion } from "motion/react";
 
 function Navigation() {
+  // Scroll to section function
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   const navItems = [
-    { name: "Home", href: "#home", icon: "🏠" },
-    { name: "About", href: "#about", icon: "👤" },
-    { name: "Work", href: "#work", icon: "💼" },
-    { name: "Contact", href: "#contact", icon: "📧" }
+    { name: "Home", href: "#home", sectionId: "home", icon: "🏠" },
+    { name: "About", href: "#about", sectionId: "about", icon: "👤" },
+    { name: "Projects", href: "#project", sectionId: "project", icon: "🚀" },
+    { name: "Experience", href: "#work", sectionId: "work", icon: "💼" },
+    { name: "Contact", href: "#contact", sectionId: "contact", icon: "📧" }
   ];
 
   return (
@@ -25,13 +37,51 @@ function Navigation() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 + 0.5 }}
           >
-            <a 
+            <motion.button 
               className="nav-link-modern" 
-              href={item.href}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection(item.sectionId);
+              }}
+              whileHover={{ 
+                scale: 1.1,
+                backgroundColor: "rgba(255, 255, 255, 0.15)",
+                backdropFilter: "blur(30px)",
+              }}
+              whileTap={{ scale: 0.9 }}
+              transition={{
+                scale: { duration: 0.2, ease: "easeOut" },
+                backgroundColor: { duration: 0.3 },
+                backdropFilter: { duration: 0.3 },
+              }}
             >
-              <span className="nav-icon">{item.icon}</span>
-              <span className="nav-text">{item.name}</span>
-            </a>
+              <motion.span 
+                className="nav-icon"
+                whileHover={{ 
+                  rotate: [0, -10, 10, 0],
+                  scale: 1.2
+                }}
+                transition={{ duration: 0.5 }}
+              >
+                {item.icon}
+              </motion.span>
+              <motion.span 
+                className="nav-text"
+                whileHover={{ 
+                  background: [
+                    "linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)",
+                    "linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%)",
+                    "linear-gradient(135deg, #06b6d4 0%, #10b981 100%)",
+                    "linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)",
+                  ],
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+                transition={{ duration: 0.8 }}
+              >
+                {item.name}
+              </motion.span>
+            </motion.button>
           </motion.li>
         ))}
       </ul>
@@ -40,6 +90,17 @@ function Navigation() {
 }
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  
+  // Scroll to section function for mobile menu
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
   
   return (
     <>
@@ -109,25 +170,57 @@ const Navbar = () => {
             >
               <div className="mobile-nav-grid">
                 {[
-                  { name: "Home", href: "#home", icon: "🏠" },
-                  { name: "About", href: "#about", icon: "👤" },
-                  { name: "Work", href: "#work", icon: "💼" },
-                  { name: "Contact", href: "#contact", icon: "📧" }
+                  { name: "Home", href: "#home", sectionId: "home", icon: "🏠" },
+                  { name: "About", href: "#about", sectionId: "about", icon: "👤" },
+                  { name: "Experience", href: "#work", sectionId: "work", icon: "💼" },
+                  { name: "Projects", href: "#project", sectionId: "project", icon: "🚀" },
+                  { name: "Contact", href: "#contact", sectionId: "contact", icon: "📧" }
                 ].map((item, index) => (
-                  <motion.a
+                  <motion.button
                     key={item.name}
-                    href={item.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection(item.sectionId);
+                      setIsOpen(false);
+                    }}
                     className="mobile-glass-link"
-                    onClick={() => setIsOpen(false)}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    whileHover={{ scale: 1.05 }}
+                    whileHover={{ 
+                      scale: 1.05,
+                      backgroundColor: "rgba(59, 130, 246, 0.1)",
+                      boxShadow: "0 8px 20px rgba(59, 130, 246, 0.3)",
+                    }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <span className="mobile-glass-icon">{item.icon}</span>
-                    <span className="mobile-glass-text">{item.name}</span>
-                  </motion.a>
+                    <motion.span 
+                      className="mobile-glass-icon"
+                      whileHover={{ 
+                        rotate: [0, -15, 15, 0],
+                        scale: 1.3
+                      }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      {item.icon}
+                    </motion.span>
+                    <motion.span 
+                      className="mobile-glass-text"
+                      whileHover={{ 
+                        background: [
+                          "linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)",
+                          "linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%)",
+                          "linear-gradient(135deg, #06b6d4 0%, #10b981 100%)",
+                          "linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)",
+                        ],
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                      }}
+                      transition={{ duration: 0.8 }}
+                    >
+                      {item.name}
+                    </motion.span>
+                  </motion.button>
                 ))}
               </div>
             </motion.div>

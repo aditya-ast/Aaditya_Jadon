@@ -81,7 +81,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-transparent">
+    <section className="relative min-h-screen w-full overflow-hidden bg-transparent" id="home">
       {/* Enhanced Dynamic Background */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Enhanced Floating Orbs with More Variety */}
@@ -440,8 +440,8 @@ const Hero = () => {
           className="absolute top-0 left-0 w-full h-full opacity-10"
           style={{
             background: `
-              radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.3) 0%, transparent 50%),
-              radial-gradient(circle at 80% 70%, rgba(168, 85, 247, 0.2) 0%, transparent 50%),
+              radial-gradient(circle at 20% 30%, rgba(168, 85, 247, 0.2) 0%, transparent 50%),
+              radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
               radial-gradient(circle at 60% 20%, rgba(6, 182, 212, 0.25) 0%, transparent 50%)
             `,
           }}
@@ -535,23 +535,6 @@ const Hero = () => {
 
         {/* Multiple Gradient Overlays */}
         <motion.div
-          className="absolute top-0 right-0 w-96 h-96 bg-gradient-radial from-blue-500/[0.05] via-purple-500/[0.03] to-transparent rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.6, 0.3, 0.6],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          style={{
-            x: mousePosition.x * 25 + Math.sin(time * 0.4) * 15,
-            y: mousePosition.y * 20 + Math.cos(time * 0.6) * 12,
-          }}
-        />
-
-        <motion.div
           className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-radial from-cyan-500/[0.04] via-emerald-500/[0.02] to-transparent rounded-full blur-3xl"
           animate={{
             scale: [1, 1.3, 1],
@@ -588,24 +571,6 @@ const Hero = () => {
           }}
         />
 
-        <motion.div
-          className="absolute top-0 left-1/2 w-88 h-88 bg-gradient-radial from-indigo-500/[0.04] via-violet-500/[0.02] to-transparent rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.25, 1],
-            opacity: [0.5, 0.25, 0.5],
-          }}
-          transition={{
-            duration: 16,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 6,
-          }}
-          style={{
-            x: mousePosition.x * -22 + Math.cos(time * 0.5) * 14,
-            y: mousePosition.y * 18 + Math.sin(time * 0.8) * 11,
-          }}
-        />
-
         {/* Enhanced Ripple Effects */}
         <motion.div
           className="absolute top-1/2 left-1/2 w-32 h-32 border border-white/10 rounded-full"
@@ -639,7 +604,7 @@ const Hero = () => {
         />
 
         <motion.div
-          className="absolute top-1/2 left-1/2 w-64 h-64 border border-blue-400/5 rounded-full"
+          className="absolute top-1/2 left-1/2 w-64 h-64 border border-white/5 rounded-full"
           style={{ transform: 'translate(-50%, -50%)' }}
           animate={{
             scale: [1, 3.5, 1],
@@ -860,7 +825,7 @@ const Hero = () => {
             transition={{
               boxShadow: { duration: 4, repeat: Infinity, ease: "easeInOut" },
             }}
-            onClick={() => scrollToSection('experiences')}
+            onClick={() => scrollToSection('project')}
             className={`bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-xl border-0 transition-all duration-300 relative overflow-hidden ${
               isMobile ? 'px-8 py-4 text-lg' : 'px-10 py-4 text-lg'
             }`}
@@ -962,7 +927,7 @@ const Hero = () => {
               }}
             >
               <motion.div
-                animate={{ y: [0, 12, 0] }}
+                animate={{ y: [0, 8, 0] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 className="w-1 h-3 rounded-full mt-2"
                 style={{
@@ -984,47 +949,6 @@ const Hero = () => {
               />
             </motion.div>
           </motion.div>
-        </motion.div>
-
-        {/* Floating Social Indicators */}
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 1.5, duration: 0.8 }}
-          className="absolute right-8 top-1/2 transform -translate-y-1/2 flex flex-col gap-4 z-20"
-        >
-          {[
-            { name: 'GitHub', section: 'projects' },
-            { name: 'LinkedIn', section: 'contact' },
-            { name: 'Twitter', section: 'about' }
-          ].map((social, index) => (
-            <motion.div
-              key={social.name}
-              className="w-10 h-10 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 flex items-center justify-center cursor-pointer"
-              onClick={() => scrollToSection(social.section)}
-              whileHover={{
-                scale: 1.2,
-                backgroundColor: "rgba(255, 255, 255, 0.1)",
-                borderColor: "rgba(59, 130, 246, 0.4)",
-              }}
-              animate={{
-                y: [0, Math.sin(time + index) * 3, 0],
-                borderColor: [
-                  "rgba(255, 255, 255, 0.1)",
-                  "rgba(96, 165, 250, 0.2)",
-                  "rgba(168, 85, 247, 0.2)",
-                  "rgba(255, 255, 255, 0.1)",
-                ],
-              }}
-              transition={{
-                y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
-                borderColor: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: index * 0.5 },
-              }}
-              title={`Go to ${social.section} section`}
-            >
-              <span className="text-xs font-bold text-gray-300">{social.name[0]}</span>
-            </motion.div>
-          ))}
         </motion.div>
       </motion.div>
     </section>

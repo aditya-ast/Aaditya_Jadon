@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import Alert from "../components/Alert";
 import { Particles } from "../components/Particles";
+import { motion } from "motion/react";
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -12,9 +14,16 @@ const Contact = () => {
   const [showAlert, setShowAlert] = useState(false);
   const [alertType, setAlertType] = useState("success");
   const [alertMessage, setAlertMessage] = useState("");
+
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init("pn-Bw_mS1_QQdofuV");
+  }, []);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
   const showAlertMessage = (type, message) => {
     setAlertType(type);
     setAlertMessage(message);
@@ -23,35 +32,68 @@ const Contact = () => {
       setShowAlert(false);
     }, 5000);
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Validate form data
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      showAlertMessage("danger", "Please fill in all fields");
+      return;
+    }
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      showAlertMessage("danger", "Please enter a valid email address");
+      return;
+    }
+
     setIsLoading(true);
 
     try {
-      console.log("From submitted:", formData);
-      await emailjs.send(
+      console.log("Form submitted:", formData);
+      
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        to_name: "Aditya",
+        message: formData.message,
+        reply_to: formData.email,
+      };
+
+      const result = await emailjs.send(
         "service_79b0nyj",
         "template_17us8im",
-        {
-          from_name: formData.name,
-          to_name: "Aditya",
-          from_email: formData.email,
-          to_email: "aditya.jadon.at@gmail.com",
-          message: formData.message,
-        },
+        templateParams,
         "pn-Bw_mS1_QQdofuV"
       );
-      setIsLoading(false);
+
+      console.log("Email sent successfully:", result);
       setFormData({ name: "", email: "", message: "" });
-      showAlertMessage("success", "You message has been sent!");
+      showAlertMessage("success", "Your message has been sent successfully!");
     } catch (error) {
+      console.error("Email send error:", error);
+      
+      let errorMessage = "Something went wrong. Please try again.";
+      
+      if (error.status === 400) {
+        errorMessage = "Invalid request. Please check your information.";
+      } else if (error.status === 401) {
+        errorMessage = "Authentication failed. Please contact the site administrator.";
+      } else if (error.status === 404) {
+        errorMessage = "Email service not found. Please contact the site administrator.";
+      } else if (error.text) {
+        errorMessage = `Error: ${error.text}`;
+      }
+      
+      showAlertMessage("danger", errorMessage);
+    } finally {
       setIsLoading(false);
-      console.log(error);
-      showAlertMessage("danger", "Somthing went wrong!");
     }
   };
   return (
-    <section className="relative min-h-screen flex items-center c-space section-spacing">
+    <section className="relative min-h-screen flex items-center c-space py-12 md:py-16 lg:py-20" id="contact">
       <Particles
         className="absolute inset-0 -z-50"
         quantity={100}
@@ -170,23 +212,82 @@ const Contact = () => {
                 />
               </div>
               
-              <button
+              <motion.button
                 type="submit"
                 disabled={isLoading}
-                className="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold text-lg transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-blue-500/50 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                className="glass-button group relative w-full py-4 px-8 rounded-3xl overflow-hidden text-white font-medium text-lg transition-all duration-500 focus:outline-none disabled:opacity-50"
+                whileHover={{ y: -3 }}
+                whileTap={{ scale: 0.98 }}
+                style={{
+                  background: "rgba(255, 255, 255, 0.1)",
+                  backdropFilter: "blur(20px)",
+                  border: "1px solid rgba(255, 255, 255, 0.2)"
+                }}
               >
-                {isLoading ? (
-                  <div className="flex items-center justify-center space-x-2">
-                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                    <span>Sending...</span>
-                  </div>
-                ) : (
-                  <div className="flex items-center justify-center space-x-2">
-                    <span>Send Message</span>
-                    <span className="text-xl">🚀</span>
-                  </div>
-                )}
-              </button>
+                <motion.div
+                  className="absolute inset-0 rounded-3xl"
+                  whileHover={{
+                    background: "rgba(255, 255, 255, 0.15)",
+                    boxShadow: "0 8px 32px rgba(0, 0, 0, 0.3)"
+                  }}
+                  transition={{ duration: 0.3 }}
+                />
+                
+                <motion.div
+                  className="absolute top-0 left-0 w-full h-full rounded-3xl"
+                  animate={{
+                    background: [
+                      "linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 50%)",
+                      "linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%)",
+                      "linear-gradient(225deg, rgba(255,255,255,0.1) 0%, transparent 50%)",
+                      "linear-gradient(315deg, rgba(255,255,255,0.1) 0%, transparent 50%)",
+                      "linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 50%)"
+                    ]
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+                
+                <div className="relative z-10 flex items-center justify-center space-x-3">
+                  {isLoading ? (
+                    <div className="flex items-center space-x-2">
+                      <motion.div
+                        className="w-4 h-4 bg-white/60 rounded-full"
+                        animate={{
+                          scale: [1, 1.5, 1],
+                          opacity: [0.6, 1, 0.6]
+                        }}
+                        transition={{ duration: 1.5, repeat: Infinity }}
+                      />
+                      <span className="opacity-80">Sending...</span>
+                    </div>
+                  ) : (
+                    <>
+                      <motion.span
+                        className="text-xl"
+                        whileHover={{ 
+                          scale: 1.2,
+                          rotate: [0, 10, -10, 0]
+                        }}
+                        transition={{ duration: 0.4 }}
+                      >
+                        ✨
+                      </motion.span>
+                      <span>Send Message</span>
+                      <motion.span
+                        className="text-xl opacity-70"
+                        whileHover={{ x: 3 }}
+                      >
+                        →
+                      </motion.span>
+                    </>
+                  )}
+                </div>
+              </motion.button>
+             
             </form>
           </div>
         </div>

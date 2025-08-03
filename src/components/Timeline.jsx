@@ -169,10 +169,7 @@ export const Timeline = ({ data }) => {
         
         {/* Enhanced Timeline Line */}
         <div
-          style={{
-            height: height + "px",
-          }}
-          className="absolute left-[1px] top-0 overflow-hidden w-[2px] bg-gradient-to-b from-transparent via-neutral-700 to-transparent rounded-full"
+          className="absolute left-[1px] top-0 bottom-20 overflow-hidden w-[2px] bg-gradient-to-b from-transparent via-neutral-700 to-transparent rounded-full"
         >
           {/* Static gradient line without scroll animation */}
           <div className="absolute inset-x-0 top-0 w-[2px] h-full bg-gradient-to-b from-blue-400 via-purple-500 to-pink-500 rounded-full shadow-lg shadow-blue-500/50" />

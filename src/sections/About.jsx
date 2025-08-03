@@ -8,7 +8,7 @@ import { Frameworks } from "../components/Frameworks";
 const About = () => {
   const grid2Container = useRef();
   return (
-    <section className="c-space section-spacing" id="about">
+    <section className="c-space py-12 md:py-16 lg:py-20" id="about">
       {/* About Me Header - Same style as Projects */}
       <div className="relative mb-16 text-left">
         <motion.div
