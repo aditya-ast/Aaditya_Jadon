@@ -87,15 +87,16 @@ body {
 
 .nav-container {
   @apply flex items-center gap-1 sm:gap-2 px-3 sm:px-6 py-2 sm:py-4 rounded-full shadow-2xl;
-  /* Enhanced Glass Effect */
-  background: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(40px);
-  -webkit-backdrop-filter: blur(40px);
+  /* Superior Glass Effect */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.125);
   box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
     0 8px 32px rgba(0, 0, 0, 0.4),
-    0 4px 16px rgba(0, 0, 0, 0.3),
-    inset 0 1px 2px rgba(255, 255, 255, 0.1),
-    inset 0 -1px 2px rgba(0, 0, 0, 0.2);
+    inset 0 1px 2px rgba(255, 255, 255, 0.15),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.1);
   /* Responsive scaling */
   transform: scale(0.9);
 }
@@ -184,15 +185,17 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  /* Superior Glass Effect */
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 50px;
   box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.37),
-    0 4px 16px rgba(0, 0, 0, 0.25),
-    inset 0 1px 2px rgba(255, 255, 255, 0.1);
+    0 20px 40px -12px rgba(0, 0, 0, 0.6),
+    0 8px 24px rgba(0, 0, 0, 0.5),
+    inset 0 1px 2px rgba(255, 255, 255, 0.12),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.08);
   padding: 8px;
   width: 44px;
   height: 44px;
