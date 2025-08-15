@@ -86,10 +86,9 @@ const Hero = () => {
       <div className="absolute inset-0 pointer-events-none">
         {/* Enhanced Floating Orbs with More Variety */}
         <motion.div
-          className="absolute top-1/4 left-1/4 w-3 h-3 bg-blue-400/40 rounded-full blur-[1px]"
+          className="absolute top-1/4 left-1/4 w-3 h-3 bg-[#030412] rounded-full blur-[1px]"
           animate={{
             y: [0, -30, 0],
-            opacity: [0.3, 0.8, 0.3],
             scale: [1, 1.5, 1],
           }}
           transition={{
@@ -109,7 +108,6 @@ const Hero = () => {
           style={{ transform: 'translate(-50%, -50%)' }}
           animate={{
             scale: [1, 1.8, 1],
-            opacity: [0.5, 0.1, 0.5],
             rotate: [0, 180, 360],
           }}
           transition={{
@@ -139,7 +137,7 @@ const Hero = () => {
         {[...Array(8)].map((_, i) => (
           <motion.div
             key={`helix-${i}`}
-            className="absolute w-2 h-2 bg-gradient-to-r from-blue-400/60 to-purple-400/60 rounded-full"
+            className="absolute w-2 h-2 bg-gradient-to-r rounded-full"
             style={{
               left: '50%',
               top: '50%',
