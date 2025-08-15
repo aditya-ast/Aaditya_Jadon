@@ -14,7 +14,7 @@ const App = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setTimeout(() => setLoading(false), 4000); // 1s gap after loading animation
+      setTimeout(() => setLoading(false), 3000); // 1s gap after loading animation
     }, 2000);
     return () => clearTimeout(timer);
   }, []);

@@ -433,27 +433,6 @@ const Hero = () => {
           />
         ))}
 
-        {/* Nebula Clouds */}
-        <motion.div
-          className="absolute top-0 left-0 w-full h-full opacity-10"
-          style={{
-            background: `
-              radial-gradient(circle at 20% 30%, rgba(168, 85, 247, 0.2) 0%, transparent 50%),
-              radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
-              radial-gradient(circle at 60% 20%, rgba(6, 182, 212, 0.25) 0%, transparent 50%)
-            `,
-          }}
-          animate={{
-            opacity: [0.05, 0.15, 0.05],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-
         {/* Floating Geometric Shapes */}
         <motion.div
           className="absolute top-1/3 left-1/5 w-8 h-8 border border-blue-400/25 rotate-45"
@@ -760,7 +739,7 @@ const Hero = () => {
                 ease: "easeInOut"
               }}
             >
-              Aaditya
+              Aditya Jadon
             </motion.span>
             <br />
             <motion.span
@@ -783,7 +762,7 @@ const Hero = () => {
                 background: { duration: 6, repeat: Infinity, ease: "easeInOut" }
               }}
             >
-              Full Stack Developer
+              Software Developer
             </motion.span>
           </motion.h1>
           
@@ -795,8 +774,8 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7, duration: 0.6 }}
           >
-            I craft beautiful, responsive web applications with modern technologies. 
-            Passionate about creating seamless user experiences and scalable solutions.
+            I craft smart, responsive software solutions that combine seamless user experiences with scalable, high-performance systems powered by modern technologies.
+
           </motion.p>
         </motion.div>
 

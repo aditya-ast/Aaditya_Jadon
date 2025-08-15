@@ -243,38 +243,37 @@ export const mySocials = [
 
 export const experiences = [
   {
-    title: "Software Developer",
-    job: "Security & Defense Projects",
-    date: "2021-2023",
+    title: "Multimedia Production Lead",
+    job: "Google Developer Student Clubs Core Member SVIET",
+    date: "Jun 2023 – Jul 2023",
     contents: [
-      "Enhanced application security and developed new features, adhering to standards set by the Passive Defense Organization and National Cyberspace Center.",
-      "Designed and implemented intuitive map interfaces using MapsUI, enhancing user experience and enabling seamless interactive map integration.",
-      "Developed applications for industrial automation, leveraging C++ and the Fatek API for PLC communication.",
-      "Enhanced responsiveness and usability of applications using Windows Forms and WPF frameworks.",
-      "Executed XML to SVG conversions using X-DOM, ensuring dynamic and efficient data visualization.",
+      "Created engaging video content for club events, helping boost online interaction and audience engagement.",
+
+"Managed live streams from start to finish, making events more interactive and improving the overall viewing experience.",
+
+"Provided technical guidance to club members, helping them improve their skills in video production and streaming.",
     ],
   },
   {
-    title: "Back-End Developer",
-    job: "Car Manufacture",
-    date: "2023-2024",
+    title: "Full-Stack Developer",
+    job: "GoDigitify Nexus",
+    date: "Nov 2024 – Jul 2025",
     contents: [
-      "Engineered systems for large-scale data ingestion and analysis, ensuring efficient data processing and storage.",
-      "Developed back-end systems enabling vehicle-to-cloud communication for telemetry, diagnostics, and remote control:",
-      "✅ Implemented secure APIs, following ISO 26262 automotive safety standards.",
-      "✅ Ensured data privacy for customers and partners through industry-compliant protocols.",
-      "✅ Delivered remote features like over-the-air updates, real-time tracking, and remote start capabilities.",
+      "Built three platforms — a Learning Management System, an IT company website, and an online booking system — together serving and improving client workflow efficiency by around 30%.",
+      "Designed responsive frontends with React, Tailwind CSS, and Material UI, and developed reliable backends with Node.js, Express, and MongoDB, achieving 99% uptime.",
+      "Added features, including API integrations, payment systems, and optimized databases, reduced errors by 40% approximately, and ensured a smooth, secure experience."
     ],
   },
   {
-    title: "Freelance Developer",
-    job: "Self-Employed",
-    date: "2025-Present",
+    title: "Full-Stack Developer",
+    job: "Revocept Solution",
+    date: "Jun 2025 – Present",
     contents: [
-      "Created a personal portfolio using Three.js, React, Vite, and WebAPI to showcase technical expertise.",
-      "Continuously enhancing technical skills and expanding expertise in modern web development and back-end technologies.",
+      "Learning and working with .NET technologies like Entity Framework, SQL Server, and MVC to create dynamic, database-driven web applications.",
+      "Using Visual Studio Community and SSMS to design, code, and manage both the frontend and backend parts of projects.",
+      "Working with the team to write clean, maintainable code and make applications run smoothly and efficiently."
     ],
-  },
+  }
 ];
 export const reviews = [
   {

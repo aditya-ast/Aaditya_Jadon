@@ -2,10 +2,10 @@
 import React, { useEffect, useState } from "react";
 
 const codeLines = [
-  'const portfolio = "Aaditya";',
+  'const portfolio = "Aditya Jadon";',
   'function loadPortfolio() {',
   '  // Initializing...',
-  '  return <Portfolio />;',
+  // '  return <Portfolio />;',
   '}',
 ];
 

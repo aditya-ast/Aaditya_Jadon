@@ -2,7 +2,6 @@ import { useRef } from "react";
 import { motion } from "framer-motion";
 import Card from "../components/Card";
 import { Globe } from "../components/globe";
-import CopyEmailButton from "../components/CopyEmailButton";
 import { Frameworks } from "../components/Frameworks";
 
 const About = () => {
@@ -108,8 +107,7 @@ const About = () => {
           <div className="z-10">
             <p className="headtext">Hi, I'm Aditya Jadon</p>
             <p className="subtext">
-              Over the last 4 years, I developed my frontend and backend dev
-              skills to deliver dynamic and software and web applications.
+              I create and design dynamic, high-quality software and web applications, handling everything from development and design to content writing for a complete end-to-end solution.
             </p>
           </div>
           <div className="absolute inset-x-0 pointer-evets-none -bottom-4 h-1/2 sm:h-1/3 bg-gradient-to-t from-indigo" />
@@ -125,12 +123,12 @@ const About = () => {
             </p>
             <Card
               style={{ rotate: "75deg", top: "30%", left: "20%" }}
-              text="GRASP"
+              text="Integration"
               containerRef={grid2Container}
             />
             <Card
               style={{ rotate: "-30deg", top: "60%", left: "45%" }}
-              text="SOLID"
+              text="Version Control"
               containerRef={grid2Container}
             />
             <Card
@@ -145,7 +143,7 @@ const About = () => {
             />
             <Card
               style={{ rotate: "20deg", top: "10%", left: "38%" }}
-              text="SRP"
+              text="Streamlining"
               containerRef={grid2Container}
             />
             <Card
@@ -213,7 +211,7 @@ const About = () => {
           <div className="z-10 w-[50%]">
             <p className="headText">Teck Stack</p>
             <p className="subtext">
-              I specialize in a variety of languages, frameworks, and tools taht
+              I specialize in a variety of languages, frameworks, and tools that
               allow me to build robust and scalable applications
             </p>
           </div>
