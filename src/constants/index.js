@@ -12,7 +12,7 @@ export const myProjects = [
     ],
     href: "",
     logo: "",
-    image: "/assets/projects/accessories.jpg",
+    image: "/assets/projects/Godigitify.png",
     tags: [
       {
         id: 1,

@@ -45,8 +45,8 @@ function Navigation() {
               }}
               whileHover={{ 
                 scale: 1.1,
-                backgroundColor: "rgba(255, 255, 255, 0.15)",
-                backdropFilter: "blur(30px)",
+                backgroundColor: "rgba(255, 255, 255, 0.5)",
+                backdropFilter: "blur(50px)",
               }}
               whileTap={{ scale: 0.9 }}
               transition={{

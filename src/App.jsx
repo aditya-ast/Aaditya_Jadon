@@ -19,9 +19,9 @@ const App = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  if (loading) {
-    return <Loader />;
-  }
+  // if (loading) {
+  //   return <Loader />;
+  // }
 
   return (
     <div className="container mx-auto max-w-7xl mb-16 md:mb-24 lg:mb-36">

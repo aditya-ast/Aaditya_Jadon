@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import Alert from "../components/Alert";
 import { Particles } from "../components/Particles";
@@ -10,14 +10,29 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const formRef = useRef(null);
   const [isLoading, setIsLoading] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [alertType, setAlertType] = useState("success");
   const [alertMessage, setAlertMessage] = useState("");
 
-  // Initialize EmailJS
+  // Vite env vars (set these in your .env for production):
+  // VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, VITE_EMAILJS_PUBLIC_KEY, VITE_CONTACT_EMAIL
+  const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+  const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+  const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+  const CONTACT_EMAIL = import.meta.env.VITE_CONTACT_EMAIL || "adisingh7478@gmail.com";
+
+  // Initialize EmailJS if public key exists
   useEffect(() => {
-    emailjs.init("pn-Bw_mS1_QQdofuV");
+    if (PUBLIC_KEY) {
+      try {
+        emailjs.init(PUBLIC_KEY);
+      } catch (err) {
+        // non-fatal; we'll still attempt to send with send(..., PUBLIC_KEY)
+        console.warn("EmailJS init failed:", err);
+      }
+    }
   }, []);
 
   const handleChange = (e) => {
@@ -35,59 +50,54 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // Validate form data
+    // Basic validation
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
       showAlertMessage("danger", "Please fill in all fields");
       return;
     }
 
-    // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       showAlertMessage("danger", "Please enter a valid email address");
       return;
     }
 
+    if (!SERVICE_ID || !TEMPLATE_ID) {
+      showAlertMessage(
+        "danger",
+        "Email service is not configured. Please set VITE_EMAILJS_SERVICE_ID and VITE_EMAILJS_TEMPLATE_ID."
+      );
+      return;
+    }
+
     setIsLoading(true);
 
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      to_name: "Aditya",
+      to_email: CONTACT_EMAIL,
+      message: formData.message,
+      reply_to: formData.email,
+      subject: `New message from ${formData.name}`,
+    };
+
     try {
-      console.log("Form submitted:", formData);
-      
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        to_name: "Aditya",
-        message: formData.message,
-        reply_to: formData.email,
-      };
+      const sendArgs = [SERVICE_ID, TEMPLATE_ID, templateParams];
+      // If PUBLIC_KEY present, pass it as the 4th argument to send
+      if (PUBLIC_KEY) sendArgs.push(PUBLIC_KEY);
 
-      const result = await emailjs.send(
-        "service_79b0nyj",
-        "template_17us8im",
-        templateParams,
-        "pn-Bw_mS1_QQdofuV"
-      );
-
-      console.log("Email sent successfully:", result);
+      const result = await emailjs.send(...sendArgs);
+      console.log("EmailJS result:", result);
       setFormData({ name: "", email: "", message: "" });
+      // reset native form if available
+      if (formRef.current) formRef.current.reset();
       showAlertMessage("success", "Your message has been sent successfully!");
-    } catch (error) {
-      console.error("Email send error:", error);
-      
-      let errorMessage = "Something went wrong. Please try again.";
-      
-      if (error.status === 400) {
-        errorMessage = "Invalid request. Please check your information.";
-      } else if (error.status === 401) {
-        errorMessage = "Authentication failed. Please contact the site administrator.";
-      } else if (error.status === 404) {
-        errorMessage = "Email service not found. Please contact the site administrator.";
-      } else if (error.text) {
-        errorMessage = `Error: ${error.text}`;
-      }
-      
-      showAlertMessage("danger", errorMessage);
+    } catch (err) {
+      console.error("Send error:", err);
+      let message = "Something went wrong while sending your message. Please try again later.";
+      if (err && err.status === 0) message = "Network error. Please check your connection.";
+      showAlertMessage("danger", message);
     } finally {
       setIsLoading(false);
     }
@@ -160,7 +170,7 @@ const Contact = () => {
               <h3 className="text-2xl font-semibold text-white mb-2">Send me a message</h3>
               <p className="text-neutral-400">I'll get back to you as soon as possible</p>
             </div>
-            <form className="space-y-6" onSubmit={handleSubmit}>
+            <form ref={formRef} className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label htmlFor="name" className="block text-sm font-medium text-neutral-300">
