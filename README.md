@@ -20,7 +20,7 @@ This is a personal portfolio website built with React, Vite, and Tailwind CSS. I
 ### Installation
 1. Clone the repository:
    ```sh
-   git clone <your-repo-url>
+   git clone https://github.com/aditya-ast/Aaditya_Jadon.git
    cd Portfolio
    ```
 2. Install dependencies:
