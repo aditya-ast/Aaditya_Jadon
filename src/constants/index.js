@@ -1,7 +1,7 @@
 export const myProjects = [
   {
     id: 1,
-    title: "E-commerce Platform",
+    title: "Godigitify Nexus",
     description:
       "Facilitates purchases from international websites like Amazon and eBay, allowing customers to shop from these sites and have products delivered domestically.",
     subDescription: [
@@ -38,7 +38,7 @@ export const myProjects = [
   },
   {
     id: 2,
-    title: "Authentication & Authorization System",
+    title: "Chit Chat",
     description:
       "A secure authentication and authorization system using Auth0 for seamless user management.",
     subDescription: [
@@ -75,7 +75,7 @@ export const myProjects = [
   },
   {
     id: 3,
-    title: "Blazor Web App",
+    title: "MRock Music",
     description:
       "A modern, interactive web application built with Blazor WebAssembly and .NET Core.",
     subDescription: [
@@ -112,7 +112,7 @@ export const myProjects = [
   },
   {
     id: 4,
-    title: "C++ Game Engine",
+    title: "Food Derivery Application",
     description:
       "A lightweight C++ game engine designed for 2D and 3D game development.",
     subDescription: [
@@ -149,7 +149,7 @@ export const myProjects = [
   },
   {
     id: 5,
-    title: "WordPress Custom Theme",
+    title: "Project Management System",
     description:
       "A fully customizable WordPress theme optimized for performance and SEO.",
     subDescription: [
@@ -186,7 +186,7 @@ export const myProjects = [
   },
   {
     id: 6,
-    title: "Online Learning Platform",
+    title: "AutoMobiles Rental Application",
     description:
       "A web application that allows users to enroll in courses, watch video lectures, and take quizzes.",
     subDescription: [

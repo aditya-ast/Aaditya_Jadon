@@ -87,11 +87,12 @@ body {
 
 .nav-container {
   @apply flex items-center gap-1 sm:gap-2 px-3 sm:px-6 py-2 sm:py-4 rounded-full shadow-2xl;
-  /* Superior Glass Effect */
-  background: rgba(255, 255, 255, 0.05);
+  /* Superior Glass Effect (increased opacity) */
+  /* Increased from 0.05 -> 0.12 for a stronger visible navbar */
+  background: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.125);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 
     0 25px 50px -12px rgba(0, 0, 0, 0.5),
     0 8px 32px rgba(0, 0, 0, 0.4),
@@ -185,11 +186,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Superior Glass Effect */
-  background: rgba(255, 255, 255, 0.04);
+  /* Superior Glass Effect (increased opacity for mobile toggle) */
+  background: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(28px) saturate(180%);
   -webkit-backdrop-filter: blur(28px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 50px;
   box-shadow: 
     0 20px 40px -12px rgba(0, 0, 0, 0.6),
@@ -231,10 +232,11 @@ body {
   top: 56px;
   right: 0;
   width: 260px;
-  background: rgba(0, 0, 0, 0.15);
+  /* Slightly darker overlay for better contrast */
+  background: rgba(0, 0, 0, 0.24);
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 16px;
   box-shadow: 
     0 8px 32px rgba(0, 0, 0, 0.37),
@@ -330,8 +332,8 @@ body {
 
 .mobile-glass-link {
   @apply flex flex-col items-center gap-2 p-4 rounded-2xl text-gray-300 hover:text-white transition-all duration-300;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   backdrop-filter: blur(10px);
   cursor: pointer;
 }
