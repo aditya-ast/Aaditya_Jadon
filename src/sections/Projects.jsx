@@ -51,7 +51,7 @@ const Projects = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            Showcasing innovation, creativity, and technical excellence
+            Showcasing innovation through design, creativity through experience, and excellence through execution.
           </motion.p>
           
           {/* Dynamic badges at the end */}

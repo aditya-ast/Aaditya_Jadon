@@ -41,7 +41,7 @@ const About = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            Passionate developer crafting innovative digital experiences
+            Half logic, Half imagination — full stack.
           </motion.p>
           
           {/* Dynamic badges at the end */}
@@ -77,7 +77,7 @@ const About = () => {
                 y: { duration: 3, repeat: Infinity, delay: 0.5 }
               }}
             >
-              🚀 4+ Years
+              🚀 1+ Years
             </motion.span>
             <motion.span
               className="px-3 py-2 text-sm font-medium bg-emerald-500/10 border border-emerald-400/30 rounded-full text-emerald-400"
@@ -107,7 +107,12 @@ const About = () => {
           <div className="z-10">
             <p className="headtext">Hi, I'm Aditya Jadon</p>
             <p className="subtext">
-              I create and design dynamic, high-quality software and web applications, handling everything from development and design to content writing for a complete end-to-end solution.
+              I’ve lost count of the nights spent chasing perfection in pixels.
+              <br />
+But that’s the beauty of creation — it never ends. <br />
+I keep refining, learning, evolving — because growth is my only constant.
+I’m not competing with others; <br />
+I’m outgrowing my past self.
             </p>
           </div>
           <div className="absolute inset-x-0 pointer-evets-none -bottom-4 h-1/2 sm:h-1/3 bg-gradient-to-t from-indigo" />
@@ -216,8 +221,7 @@ const About = () => {
           <div className="z-10 w-[50%]">
             <p className="headText">Teck Stack</p>
             <p className="subtext">
-              I specialize in a variety of languages, frameworks, and tools that
-              allow me to build robust and scalable applications
+I wield a blend of languages, frameworks, and tools — each one a weapon in crafting powerful, scalable creations.
             </p>
           </div>
           <div className="absolute inset-y-0 md:inset-y-9 w-full h-full start-[50%] md:scale-125">

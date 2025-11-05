@@ -129,8 +129,7 @@ const Contact = () => {
               </span>
             </h2>
             <p className="text-lg text-neutral-300 leading-relaxed max-w-lg">
-              Ready to bring your vision to life? Whether it's a cutting-edge web application, 
-              a mobile solution, or a complex system architecture, I'm here to turn your ideas into reality.
+              Have a vision? Let’s build it. From concept to code, I shape bold ideas into seamless digital experiences.
             </p>
           </div>
           

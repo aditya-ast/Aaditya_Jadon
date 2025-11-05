@@ -80,7 +80,7 @@ export const Timeline = ({ data }) => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            A journey through technology and innovation
+            This is my journey — through technology, beyond limits, chasing the next breakthrough.
           </motion.p>
         </motion.div>
       </div>

@@ -672,7 +672,7 @@ const Hero = () => {
               transition={{ duration: 2, repeat: Infinity }}
             />
             <motion.span 
-              className="text-sm text-gray-300 font-medium relative z-10"
+              className="text-sm text-gray-300 sm:m-7 md:m-0 font-medium relative z-10"
               animate={{
                 color: [
                   "rgb(209, 213, 219)",
@@ -714,7 +714,7 @@ const Hero = () => {
               backgroundClip: 'text',
             }}
           >
-            Hi, I'm{' '}
+            
             <motion.span
               className="inline-block"
               whileHover={{ 
@@ -767,15 +767,14 @@ const Hero = () => {
           </motion.h1>
           
           <motion.p 
-            className={`text-gray-400 leading-relaxed max-w-2xl mx-auto ${
-              isMobile ? 'text-lg' : 'text-xl'
+            className={`text-gray-400 leading-relaxed max-w-xl mx-auto ${
+              isMobile ? 'text-md' : 'text-lg'
             }`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7, duration: 0.6 }}
           >
-            I craft smart, responsive software solutions that combine seamless user experiences with scalable, high-performance systems powered by modern technologies.
-
+           From college hackathons to real-world web apps, I’ve turned challenges into XP. I’m still leveling up — not chasing perfection, but evolution — one project, one bug, one victory at a time.
           </motion.p>
         </motion.div>
 
