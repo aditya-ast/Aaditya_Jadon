@@ -24,10 +24,10 @@ const App = () => {
   // }
 
   return (
-    <div className="container mx-auto max-w-7xl mb-16 md:mb-24 lg:mb-36">
-      <Navbar />
+    <div className="container mx-auto max-w-7xl md:mb-12 lg:mb-16">
+      {/* <Navbar /> */}
       <Hero />
-      <div className="space-y-4 md:space-y-6 lg:space-y-8">
+      <div className="space-y-2 md:space-y-4 lg:space-y-6">
         <About />
         <Projects />
         <Experiences />
