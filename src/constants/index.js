@@ -10,7 +10,7 @@ export const myProjects = [
       "- Built a React frontend with a modern glassmorphism UI/UX for a clean and immersive chat experience.",
       "- Connected the MERN stack backend to store messages, user profiles, and chat rooms securely.",
     ],
-    href: "",
+    href: "https://github.com/aditya-ast/Chit-Chat",
     logo: "",
     image: "/assets/projects/chitChat.png",
     tags: [
@@ -82,7 +82,7 @@ export const myProjects = [
       "Built a modern and responsive frontend using React, Vite, Framer Motion, and Quill for a smooth learning experience.",
       "Implemented a robust backend with Node.js, Express, MongoDB, Cloudinary, and Stripe for payments and media handling.",
     ],
-    href: "",
+    href: "https://github.com/aditya-ast/Scho---LMS",
     logo: "",
     image: "/assets/projects/Scho.png",
     tags: [
