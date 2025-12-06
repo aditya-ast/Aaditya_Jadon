@@ -212,9 +212,9 @@ export const experiences = [
     ],
   },
   {
-    title: "Full-Stack Developer Intern",
+    title: "Frontend Developer",
     job: "GoDigitify Nexus",
-    date: "Nov 2024 – Jul 2025",
+    date: "Jun 2024 – Feb 2025",
     contents: [
       "Built three platforms — a Learning Management System, an IT company website, and an online booking system — together serving and improving client workflow efficiency by around 30%.",
       "Designed responsive frontends with React, Tailwind CSS, and Material UI, and developed reliable backends with Node.js, Express, and MongoDB, achieving 99% uptime.",
@@ -226,9 +226,9 @@ export const experiences = [
     job: "Revocept Solution",
     date: "Jun 2025 – Nov 2025",
     contents: [
-      "Learning and working with .NET technologies like Entity Framework, SQL Server, and MVC to create dynamic, database-driven web applications.",
-      "Using Visual Studio Community and SSMS to design, code, and manage both the frontend and backend parts of projects.",
-      "Working with the team to write clean, maintainable code and make applications run smoothly and efficiently."
+      "Developed scalable web and console applications, leveraging backend best practices to solve complex logic challenges.",
+      "Built and managed RESTful APIs within an MVC framework, creating seamless communication layers with robust error handling.",
+      "Optimized codebase efficiency and database interactions, ensuring the delivery of high-performance, bug-free solutions."
     ],
   }
 ];
